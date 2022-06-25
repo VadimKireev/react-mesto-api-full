@@ -1,0 +1,21 @@
+.profile__editor {
+  margin: 0;
+  width: 760px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media all and (max-width: 767px) {
+  .profile__editor {
+    margin: 0 auto;
+    max-width: 420px;
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width: 424px) {
+  .profile__editor {
+    max-width: 320px;
+  }
+}
