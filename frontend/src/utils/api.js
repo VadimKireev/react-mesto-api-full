@@ -140,7 +140,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://localhost:3001'
+  baseUrl: 'https://api.mesto.tdm.nomoredomains.xyz'
 });
 
 export default api;
