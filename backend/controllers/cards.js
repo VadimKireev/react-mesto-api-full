@@ -45,7 +45,7 @@ module.exports.deleteCard = (req, res, next) => {
       if (err.name === 'ForbiddenError') {
         return next(err);
       }
-      return next(new CommonError('Что-то пошло не так'));
+      return next(err);
     });
 };
 
@@ -68,7 +68,7 @@ module.exports.putLike = (req, res, next) => {
       if (err.name === 'NotFoundError') {
         return next(err);
       }
-      return next(new CommonError('Что-то пошло не так'));
+      return next(err);
     });
 };
 

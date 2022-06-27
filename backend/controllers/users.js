@@ -7,6 +7,8 @@ const SameEmailError = require('../errors/SameEmailError');
 const NotFoundError = require('../errors/NotFoundError');
 const AuthError = require('../errors/AuthError');
 
+const { JWT_SECRET, NODE_ENV } = process.env;
+
 module.exports.createUser = (req, res, next) => {
   const {
     name, about, avatar, email,
@@ -44,7 +46,7 @@ module.exports.login = (req, res, next) => {
           if (!matched) {
             throw new AuthError('Не правильный логин или пароль');
           }
-          const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+          const token = jwt.sign({ _id: user._id }, `${NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret'}`, { expiresIn: '7d' });
           res.send({ token });
         }).catch((err) => next(err));
     })
